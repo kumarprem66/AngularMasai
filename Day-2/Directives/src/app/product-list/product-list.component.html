@@ -1,3 +1,4 @@
+<app-search [productsinSearch]="products"  (searchTextChange)="searchThisProduct($event)"></app-search>
 <div class="product-container">
 
     <div class="product" *ngFor="let prod of products">

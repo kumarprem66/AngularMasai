@@ -1,0 +1,18 @@
+.search-product{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    
+}
+
+.search-product-input
+{
+    height: 50px;
+    width: 60%;
+    font-size: 20px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+

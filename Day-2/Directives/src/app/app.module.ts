@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { ConditionalDisplayComponent } from './conditional-display/conditional-display.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routung.module';
+import { SearchComponent } from './product-list/search/search.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AppRoutingModule } from './app-routung.module';
     ConditionalDisplayDirective,
     ProductListComponent,
     HeaderComponent,
-    ConditionalDisplayComponent
+    ConditionalDisplayComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
