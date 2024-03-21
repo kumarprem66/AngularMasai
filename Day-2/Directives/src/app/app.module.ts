@@ -3,14 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ToggleHighlightDirective } from './ToggleHighlightDirective';
+import { ConditionalDisplayDirective } from './ConditionalDisplayDirective';
+import { ProductListComponent } from './product-list/product-list.component';
+import { HeaderComponent } from './header/header.component';
+import { ConditionalDisplayComponent } from './conditional-display/conditional-display.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routung.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ToggleHighlightDirective
+    ToggleHighlightDirective,
+    ConditionalDisplayDirective,
+    ProductListComponent,
+    HeaderComponent,
+    ConditionalDisplayComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+     AppRoutingModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
