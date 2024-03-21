@@ -4,6 +4,7 @@ import { Directive, Input, ElementRef, Renderer2 } from '@angular/core';
   selector: '[appConditionalDisplay]'
 })
 export class ConditionalDisplayDirective {
+  
   @Input('appConditionalDisplay') isVisible: boolean = true;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}

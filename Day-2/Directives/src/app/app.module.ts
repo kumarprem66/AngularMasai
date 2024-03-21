@@ -10,6 +10,8 @@ import { ConditionalDisplayComponent } from './conditional-display/conditional-d
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routung.module';
 import { SearchComponent } from './product-list/search/search.component';
+import { ToggleComponent } from './toggle/toggle.component';
+import { TodosComponent } from './todos/todos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SearchComponent } from './product-list/search/search.component';
     ProductListComponent,
     HeaderComponent,
     ConditionalDisplayComponent,
-    SearchComponent
+    SearchComponent,
+    ToggleComponent,
+    TodosComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+
+<div class="todo-container">
+
+    <div class="todo" *ngFor="let todo of todos" [ngStyle]="{backgroundColor:todo.completed ?'Green':'Red'}">
+        <h1>{{todo.title}}</h1>
+        <h3>{{todo.description}}</h3>
+        <h2 >{{todo.completed ? 'Completed':'Not Completed'}}</h2>
+    </div>
+</div>

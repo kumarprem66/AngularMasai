@@ -2,7 +2,7 @@
 <div class="product-container">
 
     <div class="product" *ngFor="let prod of products">
-        <h1>{{prod.name}}</h1>
+        <h1 [ngStyle]="{fontSize:prod.price>500?'30px':'20px'}">{{prod.name}}</h1>
         <h3>{{prod.price}}</h3>
         <h2 [ngStyle]="{color:prod.available ?'Green':'Red'}">{{prod.available ? 'Available':'Out Of Stock'}}</h2>
     </div>
