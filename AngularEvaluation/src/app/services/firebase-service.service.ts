@@ -26,11 +26,11 @@ export class FirebaseServiceService {
 
   updateUser(user:User,userID:string){
     // it returns observable
-    return this.http.post(`${this.baseUrl}users.json`,user)
+    return this.http.put(`https://masaieval-fca0b-default-rtdb.firebaseio.com/users/${userID}.json`,user)
   }
 
   deleteUser(userId:string){
     // it returns observable
-    return this.http.post(`${this.baseUrl}users.json`,userId)
+    return this.http.delete<User>(`https://masaieval-fca0b-default-rtdb.firebaseio.com/users/${userId}.json`)
   }
 }

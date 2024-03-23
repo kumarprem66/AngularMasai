@@ -14,7 +14,8 @@ export class CreateUserComponent implements OnInit{
 
   userFormData:FormGroup;
   isUpdating:boolean = false;
-  users:User[] = []
+  users:User[] = [];
+  updatableUserId:string = '';
 
   constructor(private fb:FormBuilder,private fire:FirebaseServiceService,private router:Router){
 
@@ -36,13 +37,25 @@ export class CreateUserComponent implements OnInit{
     // this give all the data of the form
     const userData = this.userFormData.value;
 
-    // storing this data into firabase
-    this.fire.createUser(userData).subscribe((res)=>{
+   if(this.isUpdating){
+
+    this.fire.updateUser(userData,this.updatableUserId).subscribe((res)=>{
+      alert("User Updated Successfully")
+      this.isUpdating = false;
+      this.getAllUsers();
+      this.userFormData.reset()
+    })
+   }else{
+     // storing this data into firabase
+     this.fire.createUser(userData).subscribe((res)=>{
 
       alert("User Created Successfully")
       this.getAllUsers();
+      
 
     })
+    this.userFormData.reset()
+   }
     
   }
 
@@ -50,13 +63,18 @@ export class CreateUserComponent implements OnInit{
     this.fire.getUsers().subscribe((res)=>{
 
       // converting object of object into list of objects
-      const listOfObjects = Object.keys(res).map(key => {
-        return { id: key, ...res[key] };
-     });
+      
+      if(res != null){
+        const listOfObjects = Object.keys(res).map(key => {
+          return { id: key, ...res[key] };
+       });
+  
+       if(listOfObjects.length>0){
+        this.users = listOfObjects;
+      }
+    
 
-     if(listOfObjects.length>0){
-      this.users = listOfObjects;
-
+      
      }
     
     })
@@ -64,9 +82,17 @@ export class CreateUserComponent implements OnInit{
 
   deleteUser(user: User) {
     
+    // console.log(user.id)
+    this.fire.deleteUser(user.id).subscribe((res)=>{
+      alert("User with email: "+user.email+" deleted...");
+      this.getAllUsers();
+    })
     }
-    updateUser(user: User) {
-    
-    }
+  patchUser(user: User) {
+  
+    this.updatableUserId = user.id;
+    this.isUpdating = true;
+    this.userFormData.patchValue(user)
+  }
 
 }
