@@ -7,6 +7,7 @@ import { UserComponent } from './user/user.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     UserComponent,
     CreateUserComponent,
+    HeaderComponent,
     
   ],
   imports: [

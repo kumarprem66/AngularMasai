@@ -1,4 +1,5 @@
-<div class="container">
+<div class="containers">
+  <div class="container">
     <h3>Register</h3>
   <form [formGroup]="userFormData" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -21,5 +22,40 @@
   <label for="password">Set Password</label>
   <input type="password" id="password" formControlName="password">
 </div>
+<button type="submit" [disabled]="userFormData.invalid" *ngIf="!isUpdating">Register</button>
+<button type="submit" [disabled]="userFormData.invalid" *ngIf="isUpdating">Update</button>
   </form>
+</div>
+
+<div class="user-data">
+
+  <h2>--- User List --- </h2>
+
+<table>
+<thead>
+  <tr>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Update</th>
+    <th>Delete</th>
+    
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let user of users">
+    <td>{{user.firstName}}</td>
+    <td>{{user.lastName}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.mobno}}</td>
+    <td><button (click)="updateUser(user)">Edit</button></td>
+    <td><button (click)="deleteUser(user)">Delete</button></td>
+    
+  </tr>
+  
+  <!-- Add more rows as needed -->
+</tbody>
+</table>
+</div>
 </div>
