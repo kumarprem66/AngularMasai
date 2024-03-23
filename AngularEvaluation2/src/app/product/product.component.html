@@ -1,0 +1,33 @@
+<app-app-search  (searchTextChange)="searchThisProduct($event)"></app-app-search>
+<div class="product-container">
+
+    <div class="product-data">
+
+        <h2>--- Product List --- </h2>
+      
+      <table>
+      <thead>
+        <tr>
+          <th>ProductName</th>
+          <th (click)="sortProduct()">Price</th>
+          <th>Category</th>
+         
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td (click)="productDetails(product)">{{product.productName}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.category}}</td>
+          
+          
+        </tr>
+        
+        <!-- Add more rows as needed -->
+      </tbody>
+      </table>
+      </div>
+</div>
+
+
